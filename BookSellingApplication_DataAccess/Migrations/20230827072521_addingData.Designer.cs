@@ -4,6 +4,7 @@ using BookSellingApplication_DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookSellingApplication_DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230827072521_addingData")]
+    partial class addingData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,15 +43,7 @@ namespace BookSellingApplication_DataAccess.Migrations
 
                     b.HasKey("Admin_Id");
 
-                    b.ToTable("Admins", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Admin_Id = 1,
-                            Password = "Cheppanu",
-                            UserName = "Anvesh"
-                        });
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("BookSellingApplication_Model.Models.Book", b =>
@@ -68,6 +63,10 @@ namespace BookSellingApplication_DataAccess.Migrations
                     b.Property<int>("Category_ID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -82,7 +81,7 @@ namespace BookSellingApplication_DataAccess.Migrations
 
                     b.HasIndex("CatObjCategory_Id");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("BookSellingApplication_Model.Models.Cart", b =>
@@ -113,7 +112,7 @@ namespace BookSellingApplication_DataAccess.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("CartDetails", (string)null);
+                    b.ToTable("CartDetails");
                 });
 
             modelBuilder.Entity("BookSellingApplication_Model.Models.Category", b =>
@@ -130,7 +129,7 @@ namespace BookSellingApplication_DataAccess.Migrations
 
                     b.HasKey("Category_Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -225,7 +224,7 @@ namespace BookSellingApplication_DataAccess.Migrations
 
                     b.HasKey("Customer_Id");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("BookSellingApplication_Model.Models.Purchase", b =>
@@ -247,7 +246,7 @@ namespace BookSellingApplication_DataAccess.Migrations
 
                     b.HasKey("Purchase_Id");
 
-                    b.ToTable("PurchaseDetails", (string)null);
+                    b.ToTable("PurchaseDetails");
                 });
 
             modelBuilder.Entity("BookSellingApplication_Model.Models.Book", b =>

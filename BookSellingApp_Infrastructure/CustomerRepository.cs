@@ -30,6 +30,7 @@ namespace BookSellingApp_Infrastructure
         public void Register(T customerToBeRegistered)
         {
             context.Customers.Add(customerToBeRegistered);
+            context.SaveChanges();
         }
 
         public void Update(int Category_Id, string Password)

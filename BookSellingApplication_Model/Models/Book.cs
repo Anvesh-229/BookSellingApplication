@@ -13,7 +13,6 @@ namespace BookSellingApplication_Model.Models
         public string Publisher { get; set; }
         public int Price { get; set; }
         public int Available_Quantity { get; set; }
-        public string Password { get; set; }
 
         public Category CatObj { get; set; }
         public int Category_ID { get; set; }

@@ -8,8 +8,9 @@ namespace BookSellingApplication_Interfaces
 {
     public interface IPurchase<T>
     {
-        public void PurchaseCartItems(int customerId);
-        public void AddItems(int customerId);
-        public void RemoveItems(int customerId);
+        public void PurchaseAllCartItems(int customerId);
+
+        public void PurchseCartItemsSeperately(int PurchasingcartId,int PurchasingCustomerId);
+        
     }
 }

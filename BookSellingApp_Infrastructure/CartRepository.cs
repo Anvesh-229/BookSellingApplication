@@ -16,12 +16,14 @@ namespace BookSellingApp_Infrastructure
         public void AddToCart(T obj)
         {
             context.CartDetails.Add(obj);
+            context.SaveChanges();
         }
 
-        public void RemoveFromCart(int BookID, int CustomerID)
+        public void RemoveFromCart(int cartIDToBeDeleted, int CustomerID)
         {
-            var item = context.CartDetails.FirstOrDefault(u => u.Book_Id == BookID && u.CustomerId == CustomerID);
+            var item = context.CartDetails.FirstOrDefault(u => u.Id == cartIDToBeDeleted && u.CustomerId == CustomerID);
             context.CartDetails.Remove(item);
+            context.SaveChanges();
         }
 
         public IEnumerable<T> ViewCart(int customerID)

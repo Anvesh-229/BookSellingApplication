@@ -29,7 +29,7 @@ namespace BookSellingApplication_DataAccess.Data
             modelBuilder.Entity<Book>().HasKey(u => u.Book_Id);
             modelBuilder.Entity<Book>().Property(u => u.Title).IsRequired();
             modelBuilder.Entity<Book>().Property(u => u.Available_Quantity).IsRequired();
-            modelBuilder.Entity<Book>().Property(u => u.Password).IsRequired();
+            modelBuilder.Entity<Book>().Property(u => u.Category_ID).IsRequired();
 
 
             modelBuilder.Entity<Admin>().HasKey(u => u.Admin_Id);
@@ -57,7 +57,6 @@ namespace BookSellingApplication_DataAccess.Data
             modelBuilder.Entity<Cart>().HasKey(u => u.Id);
             modelBuilder.Entity<Cart>().Property(u => u.Id).IsRequired();
             modelBuilder.Entity<Cart>().Property(u => u.Book_Id).IsRequired();
-            modelBuilder.Entity<Cart>().Property(u => u.Title).IsRequired();
             modelBuilder.Entity<Cart>().Property(u => u.Quantity).IsRequired();
             modelBuilder.Entity<Cart>().Property(u => u.CustomerId).IsRequired();
             modelBuilder.Entity<Cart>().HasOne(u => u.BookObj).WithMany(u => u.CartItems).HasForeignKey(u => u.Book_Id);
@@ -79,7 +78,9 @@ namespace BookSellingApplication_DataAccess.Data
                 new Category { Category_Id = 11, Category_Name = "Biography" },
                 new Category { Category_Id = 12, Category_Name = "Science" }
                 );
-
+            modelBuilder.Entity<Admin>().HasData(
+                new Admin { Admin_Id = 1 , UserName = "Anvesh" , Password = "Cheppanu"}
+                );
         }
     }
 }

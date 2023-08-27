@@ -16,6 +16,7 @@ namespace BookSellingApp_Infrastructure
         public void AddBook(T book)
         {
             context.Books.Add(book);
+            context.SaveChanges();
         }
 
         public T GetBook(int BookId)
@@ -41,6 +42,7 @@ namespace BookSellingApp_Infrastructure
         {
             var book = context.Books.FirstOrDefault(u => u.Book_Id == id);
             context.Books.Remove(book);
+            context.SaveChanges();
         }
 
         public void UpdateBook(int BookId, T book)

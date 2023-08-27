@@ -9,7 +9,7 @@ namespace BookSellingApplication_Interfaces
     public interface ICart<T>
     {
         public void AddToCart(T obj);
-        public void RemoveFromCart(int Book_Id, int CustomerID);
+        public void RemoveFromCart(int cartIDToBeDeleted, int CustomerID);
         public IEnumerable<T> ViewCart(int CustmerId);
     }
 }
