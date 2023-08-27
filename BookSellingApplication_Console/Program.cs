@@ -83,16 +83,19 @@ Category_Id = 12, Category_Name = Science
                                 Log.Information("Your operation to add Book will be started shortly...");
                                 bookRepository.AddBook(Book);
                                 Log.Information("Book Added Successfully");
+                                choice = 3;
                                 break;
-
                             case 2:
                                 Console.WriteLine("Enter the Book Id to be deleted");
                                 var Book_IdToDelete =int.Parse(Console.ReadLine());
                                 Log.Information("Your operation to delete Book will be started shortly...");
                                 bookRepository.RemoveBook(Book_IdToDelete);
                                 Log.Information("Book has been removed successfully...");
+                                choice = 3;
                                 break;
                             case 3:
+                                choice = 3;
+                                Log.Information("Your operation to exit wioll be started shortly...");
                                 break;
                         }
 
