@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookSellingApplication_Console\BookSellingApplication_Console.csproj" />
+    <ProjectReference Include="..\BookSellingApplication_DataAccess\BookSellingApplication_DataAccess.csproj" />
+    <ProjectReference Include="..\BookSellingApplication_Interfaces\BookSellingApplication_Interfaces.csproj" />
+    <ProjectReference Include="..\BookSellingApplication_Model\BookSellingApplication_Model.csproj" />
+    <ProjectReference Include="..\BookSellingApplication_web\BookSellingApplication_web.csproj" />
+  </ItemGroup>
+
+</Project>
